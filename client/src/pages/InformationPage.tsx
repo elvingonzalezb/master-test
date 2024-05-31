@@ -10,30 +10,45 @@ import HeaderPage from "@/pages/HeaderPage"
 
 const notifications = [
     {
-        title: "Backend Api Node js - Auth python",
-        description: "Api para obtener los datos de GitHub segun parametros de user, sort, order, per_page ",
-    },
-    {
-        title: "Seguridad en API",
-        description: "Configuración de Rated - slow limit, Compresion en headers",
-    },
-    {
-        title: "Frontend React - Typescript",
+        title: "Información general",
         description: "Mas información sera enviada por correo",
+        url: "https://github.com/elvingonzalezb/master-test/wiki"
     },
     {
-        title: "Infraestructura",
+        title: "Ejercicio 1",
+        description: "Consumo de APIs",
+        url: "https://github.com/elvingonzalezb/master-test/wiki/Ejercicio-1"
+    },
+    {
+        title: "Ejercicio 2 y 3",
+        description: "Mas información sera enviada por correo",
+        url: "https://github.com/elvingonzalezb/master-test/wiki/Ejercicio-2-y-3"
+    },
+    {
+        title: "Estructura comercio electrónico",
         description: "Kubernetes cluster - Docker images en Docker Hub - Servicios para backend API, backend Auth, Frontend, Base de datos en RDS AWS",
+        url: "https://github.com/elvingonzalezb/master-test/wiki/Estructura-comercio-electr%C3%B3nico"
+    },
+    {
+        title: "Modelo general para la base de datos",
+        description: "Mas información sera enviada por correo",
+        url: "https://github.com/elvingonzalezb/master-test/wiki/Modelado-de-bases-de-datos"
+    },
+    {
+        title: "Política de Nomenclatura para el Equipo de Desarrollo",
+        description: "Mas información sera enviada por correo",
+        url: "https://github.com/elvingonzalezb/master-test/wiki/Pol%C3%ADtica-de-Nomenclatura-para-el-Equipo-de-Desarrollo"
     },
     {
         title: "Información Detallada",
         description: "Será enviada por correo",
+        url: "#"
     },
 ]
 
 type CardProps = React.ComponentProps<typeof Card>
 
-    const  InformationPage = ({ className, ...props }: CardProps) => {
+const InformationPage = ({ className, ...props }: CardProps) => {
     return (
         <>       
         <HeaderPage />
@@ -51,18 +66,19 @@ type CardProps = React.ComponentProps<typeof Card>
                                         key={index}
                                         className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
                                     >
-                                    <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+                                        <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
                                         <div className="space-y-1">
                                             <p className="text-sm font-medium leading-none">
-                                            {notification.title}
+                                                <a href={notification.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                                                    {notification.title}
+                                                </a>
                                             </p>
                                             <p className="text-sm text-muted-foreground">
-                                            {notification.description}
+                                                {notification.description}
                                             </p>
                                         </div>
                                     </div>
                                 ))}
-                                
                             </div>
                         </CardContent>                      
                     </Card>
@@ -70,6 +86,6 @@ type CardProps = React.ComponentProps<typeof Card>
             </div>
         </> 
     )
-    }
+}
 
 export default InformationPage
