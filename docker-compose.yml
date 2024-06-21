@@ -1,0 +1,98 @@
+version: '3.9'
+networks:
+  ramselvin-network:
+
+services:
+  ramselvin-react:
+    container_name: ramselvin-react
+    image: gonzalezelvin/ramselvin-react:latest 
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - ramselvin-network
+
+  ramselvin-auth:
+    container_name: ramselvin-auth
+    image: gonzalezelvin/ramselvin-auth:latest
+    ports:
+      - 3001:3001
+    restart: always
+    networks:
+      - ramselvin-network
+
+  ramselvin-api:
+    container_name: ramselvin-api
+    image: gonzalezelvin/ramselvin-api:latest 
+    ports:
+      - 4000:4000
+    restart: always
+    networks:
+      - ramselvin-network
+
+  ramselvin-extract:
+    container_name: ramselvin-extract
+    image: gonzalezelvin/ramselvin-extract:latest 
+    ports:
+      - 5000:5000
+    restart: always
+    networks:
+      - ramselvin-network
+
+  ramselvin-transform:
+    container_name: ramselvin-transform
+    image: gonzalezelvin/ramselvin-transform:latest
+    ports:
+      - 8000:8000
+    restart: always
+    networks:
+      - ramselvin-network 
+
+  ramselvin-load:
+    container_name: ramselvin-load
+    image: gonzalezelvin/ramselvin-load:latest
+    ports:
+      - 7000:7000
+    networks:
+      - ramselvin-network 
+
+  # ramselvin-producer:
+  #   # container_name: ramselvin-producer
+  #   # image: gonzalezelvin/ramselvin-producer:latest
+  #   # restart: always
+  #   build:
+  #     context: ./ramselvin-rabbitmq/producer
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8100:8100"
+  #   networks:
+  #     - ramselvin-network
+
+  # ramselvin-consumer:
+  #   # container_name: ramselvin-consumer
+  #   # image: gonzalezelvin/ramselvin-consumer:latest
+  #   # restart: always
+  #   build:
+  #     context: ./ramselvin-rabbitmq/consumer
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8200:8200"
+  #   networks:
+  #     - ramselvin-network
+
+  nginx:
+    container_name: nginx
+    image: gonzalezelvin/ramselvin-nginx:latest
+    ports:
+      - 80:8080
+    restart: always
+    depends_on:
+      - ramselvin-react
+      - ramselvin-auth
+      - ramselvin-api
+      - ramselvin-extract
+      - ramselvin-transform    
+      - ramselvin-load
+    networks:
+      - ramselvin-network
+      

@@ -1,23 +1,13 @@
-# Prueba Técnica de Evaluación
+Prueba de técnica - Empresa Inlaze
 
-## Objetivo de la Prueba
-Evaluar tus habilidades en Backend.
+Repositorio: https://github.com/elvingonzalezb/master-test
 
-### Ejercicio 1: Consumo de APIs
+Enlace para verificar pequeña App: http://44.218.139.126/
 
-### Ejercicio 2: Nomenclatura
+Enlace para verificar documentación servicio API: http://44.218.139.126/api/docs
 
-### Ejercicio 3: Pensamiento Lógico
+Enlace para verificar documentación servicio Extract: http://44.218.139.126/extract/docs
 
-### Ejercicio 4: Modelado de Bases de Datos
+Enlace para verificar documentación servicio Transform: http://44.218.139.126/transform/docs
 
-### Ejercicio 5: Arquitectura del Backend
-
-### Ejercicio 6: Nomenclatura
-
-### Proceso realizado
-* Se creo wikis con la documentación de cada ejercicio en detalle.
-
-https://github.com/elvingonzalezb/master-test/wiki
-
-
+Enlace para verificar documentación servicio Load: http://44.218.139.126/load/docs

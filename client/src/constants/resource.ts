@@ -1,1 +1,0 @@
-export const LOGO_MASTER = 'https://ramselvinbucketaws.s3.amazonaws.com/assets/icons/bemaster_lat_logo.jpeg';
