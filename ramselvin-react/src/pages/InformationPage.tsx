@@ -39,11 +39,7 @@ const notifications = [
         description: "Sera redirigido a la url de documentación de APIs Swagger",
         url: "http://44.218.139.126/load/docs"
     },
-    {
-        title: "Diagramas",
-        description: "Mas información sera enviada por correo",
-        url: "https://excalidraw.com/#json=LatqeuoY8C7DwbtcfBHFv,lZei8IuFHNUi2wSaASesfg"
-    },
+    
 ]
 
 type CardProps = React.ComponentProps<typeof Card>
